@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Acme Product Management</title>
+	
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <!-- Libaray Scripts -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/productResource.js"></script>
+
+    <!-- Product Controllers -->
+    <script src="app/products/productListCtrl.js"></script>
+</head>
+<body ng-app="productManagement">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">Acme Product Management</div>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="username (email)" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="password" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                    <button type="submit" class="btn btn-default">Register</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ng-include="'app/products/productListView.html'"></div>
+    </div>
+    {{2+2}}
+    
+</body>
+</html>
