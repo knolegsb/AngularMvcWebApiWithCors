@@ -27,10 +27,16 @@ namespace AngularMvcWebApi
 
             config.EnableCors();
 
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "SearchApi",
+                routeTemplate: "api/{controller}/{search}",
+                defaults: new { search = RouteParameter.Optional }
             );
         }
     }

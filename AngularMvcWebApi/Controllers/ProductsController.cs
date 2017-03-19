@@ -29,6 +29,13 @@ namespace AngularMvcWebApi.Controllers
             }
         }
 
+        public IEnumerable<Product> Get(string search)
+        {
+            var productRepository = new ProductRepository();
+            var products = productRepository.Retrieve();
+            return products.Where(p => p.ProductCode.Contains(search));
+        }
+
         [ResponseType(typeof(Product))]
         [Authorize()]
         public IHttpActionResult Get(int id)
@@ -57,6 +64,26 @@ namespace AngularMvcWebApi.Controllers
             {
                 return InternalServerError(ex);
             }
+        }
+
+        // POST: api/products
+        public void Post([FromBody]Product product)
+        {
+            var productRepository = new ProductRepository();
+            var newProduct = productRepository.Save(product);
+        }
+
+        // PUT: api/products/5
+        public void Put(int id, [FromBody]Product product)
+        {
+            var productRepository = new ProductRepository();
+            var updateProduct = productRepository.Save(id, product);
+        }
+
+        // DELETE: api/products/5
+        public void Delete(int id)
+        {
+
         }
     }
 }

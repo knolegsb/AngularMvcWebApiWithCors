@@ -1,0 +1,34 @@
+﻿<form class="form-horizontal" 
+      name="productForm" 
+      novalidate 
+      ng-controller="productEditCtrl as vm">
+    <fieldset>
+        <legend>Basic Product Information</legend>
+        <div class="form-group" 
+             ng-class="{'has-error': productForm.inputProductName.$invalid && productForm.inputProductName.$dirty}">
+            <label class="col-md-2 control-label" for="inputProductName">Product Name</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputProductName"
+                       name="inputProductName"
+                       type="text"
+                       placeholder="Product Name (required)"
+                       ng-model="vm.product.productName"
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="12" />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="productForm.inputProductName.$error.required">
+                    Product name is required.
+                </span>
+                <span ng-show="productForm.inputProductName.$error.minlength">
+                    Product name must be at least 4 characters in length.
+                </span>
+                <span ng-show="productForm.inputProductName.$error.maxlength">
+                    Product name cannot exceed 12 characters in length.
+                </span>
+            </span>
+        </div>
+    </fieldset>
+</form>
